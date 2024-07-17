@@ -1,9 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Threading.Tasks;
 
 namespace LineNotify.Tests.Web.Controllers
 {
     public class NotifyController : Controller
     {
+        private readonly IConfiguration Configuration;
+
+        public NotifyController(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -11,35 +21,37 @@ namespace LineNotify.Tests.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult SendLogNotify(string logMessage)
+        public async Task<IActionResult> SendLogNotify(string logMessage)
         {
-            // ここにログ通知のロジックを追加
-            ViewBag.LogMessage = logMessage;
+            await SendNotify("LogAccessToken", logMessage);
             return View("Index");
         }
 
         [HttpPost]
-        public IActionResult SendAlertNotify(string alertMessage)
+        public async Task<IActionResult> SendAlertNotify(string alertMessage)
         {
-            // ここにアラート通知のロジックを追加
-            ViewBag.AlertMessage = alertMessage;
+            await SendNotify("AlertAccessToken", alertMessage);
             return View("Index");
         }
 
         [HttpPost]
-        public IActionResult SendErrorNotify(string errorMessage)
+        public async Task<IActionResult> SendErrorNotify(string errorMessage)
         {
-            // ここにエラーメッセージのロジックを追加
-            ViewBag.ErrorMessage = errorMessage;
+            await SendNotify("ErrorAccessToken", errorMessage);
             return View("Index");
         }
 
         [HttpPost]
-        public IActionResult SendSuccessNotify(string successMessage)
+        public async Task<IActionResult> SendSuccessNotify(string successMessage)
         {
-            // ここに成功メッセージのロジックを追加
-            ViewBag.SuccessMessage = successMessage;
+            await SendNotify("SuccessAccessToken", successMessage);
             return View("Index");
+        }
+
+        private async Task SendNotify(string key, string message)
+        {
+            var accessToken = Configuration[key] ?? throw new Exception($"{key} is null.");
+            await LineNotifyHelper.SendNotifyAsync(accessToken, message);
         }
     }
 }

@@ -1,5 +1,6 @@
 using LineNotify.Tests.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
 namespace LineNotify.Tests.Web.Controllers
