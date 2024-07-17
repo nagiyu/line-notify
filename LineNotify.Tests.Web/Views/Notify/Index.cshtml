@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Notify";
+}
+
+<h2>Notify</h2>
+
+<form asp-action="SendLogNotify" method="post">
+    <label>Log Notify</label>
+    <textarea name="logMessage"></textarea>
+    <button type="submit">Send</button>
+</form>
+
+<form asp-action="SendAlertNotify" method="post">
+    <label>Alert Notify</label>
+    <textarea name="alertMessage"></textarea>
+    <button type="submit">Send</button>
+</form>
+
+<form asp-action="SendErrorNotify" method="post">
+    <label>Error Notify</label>
+    <textarea name="errorMessage"></textarea>
+    <button type="submit">Send</button>
+</form>
+
+<form asp-action="SendSuccessNotify" method="post">
+    <label>Success Notify</label>
+    <textarea name="successMessage"></textarea>
+    <button type="submit">Send</button>
+</form>
