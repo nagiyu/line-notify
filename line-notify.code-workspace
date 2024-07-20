@@ -1,0 +1,23 @@
+{
+    "folders": [
+        {
+            "path": "./"
+        },
+        {
+            "path": "./secret"
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "donjayamanne.githistory",
+            "eamodio.gitlens",
+            "oderwat.indent-rainbow",
+            "github.vscode-pull-request-github",
+            "humao.rest-client",
+            "wmaurer.change-case",
+        ]
+    },
+    "settings": {
+        "editor.renderWhitespace": "boundary"
+    },
+}
