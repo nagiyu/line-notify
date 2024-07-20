@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineNotify", "LineNotify\Li
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineNotify.Tests", "LineNotify.Tests\LineNotify.Tests.csproj", "{044193FB-B1B1-4D3C-9043-CAD49E1E21B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineNotify.Tests.Web", "LineNotify.Tests.Web\LineNotify.Tests.Web.csproj", "{27B73FE4-97B4-4001-A758-998014537764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LineNotify.Tests.Web", "LineNotify.Tests.Web\LineNotify.Tests.Web.csproj", "{27B73FE4-97B4-4001-A758-998014537764}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Secret", "secret\Secret\Secret.csproj", "{78309DA8-057E-4368-A72E-ADFB0E226180}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{27B73FE4-97B4-4001-A758-998014537764}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27B73FE4-97B4-4001-A758-998014537764}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27B73FE4-97B4-4001-A758-998014537764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78309DA8-057E-4368-A72E-ADFB0E226180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78309DA8-057E-4368-A72E-ADFB0E226180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78309DA8-057E-4368-A72E-ADFB0E226180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78309DA8-057E-4368-A72E-ADFB0E226180}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

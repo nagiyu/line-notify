@@ -19,31 +19,25 @@ namespace LineNotify.Tests
         [TestMethod]
         public async Task SendLogNotify_Success()
         {
-            await SendLogNotify("LogAccessToken");
+            await LineNotifyHelper.SendLogNotifyAsync("LogAccessToken");
         }
 
         [TestMethod]
         public async Task SendAlertNotify_Success()
         {
-            await SendLogNotify("AlertAccessToken");
+            await LineNotifyHelper.SendAlertNotifyAsync("AlertAccessToken");
         }
 
         [TestMethod]
         public async Task SendErrorNotify_Success()
         {
-            await SendLogNotify("ErrorAccessToken");
+            await LineNotifyHelper.SendErrorNotifyAsync("ErrorAccessToken");
         }
 
         [TestMethod]
         public async Task SendSuccessNotify_Success()
         {
-            await SendLogNotify("SuccessAccessToken");
-        }
-
-        private async Task SendLogNotify(string key)
-        {
-            var accessToken = _configuration[key] ?? throw new Exception($"{key} is null.");
-            await LineNotifyHelper.SendNotifyAsync(accessToken, "Notify Test.");
+            await LineNotifyHelper.SendSuccessNotifyAsync("SuccessAccessToken");
         }
     }
 }

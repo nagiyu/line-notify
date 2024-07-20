@@ -23,35 +23,29 @@ namespace LineNotify.Tests.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> SendLogNotify(string logMessage)
         {
-            await SendNotify("LogAccessToken", logMessage);
+            await LineNotifyHelper.SendLogNotifyAsync(logMessage);
             return View("Index");
         }
 
         [HttpPost]
         public async Task<IActionResult> SendAlertNotify(string alertMessage)
         {
-            await SendNotify("AlertAccessToken", alertMessage);
+            await LineNotifyHelper.SendAlertNotifyAsync(alertMessage);
             return View("Index");
         }
 
         [HttpPost]
         public async Task<IActionResult> SendErrorNotify(string errorMessage)
         {
-            await SendNotify("ErrorAccessToken", errorMessage);
+            await LineNotifyHelper.SendErrorNotifyAsync(errorMessage);
             return View("Index");
         }
 
         [HttpPost]
         public async Task<IActionResult> SendSuccessNotify(string successMessage)
         {
-            await SendNotify("SuccessAccessToken", successMessage);
+            await LineNotifyHelper.SendSuccessNotifyAsync(successMessage);
             return View("Index");
-        }
-
-        private async Task SendNotify(string key, string message)
-        {
-            var accessToken = Configuration[key] ?? throw new Exception($"{key} is null.");
-            await LineNotifyHelper.SendNotifyAsync(accessToken, message);
         }
     }
 }
